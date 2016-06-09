@@ -7,6 +7,21 @@ var DUMMY_DATA = {
   image: 'https://avatars0.githubusercontent.com/u/6300995?v=3&s=460'
 };
 
+var Link = React.createClass({
+  changeURL: function (e) {
+    window.location.replace(this.props.href)
+  },
+  render:function () {
+    return(
+      <span
+        style={{color: 'blue', cursor: 'pointer'}}
+        onClick={this.changeURL}>
+        {this.props.children}
+      </span>
+    )
+  }
+})
+
 var ProfilePic = React.createClass({
    render: function() {
      return (
@@ -20,9 +35,9 @@ var ProfilePic = React.createClass({
  var ProfileLink = React.createClass({
    render: function() {
      return (
-       <a href={'https://www.github.com/' + this.props.username}>
+       <Link href={'https://www.github.com/' + this.props.username}>
          {this.props.username}
-       </a>
+       </Link>
      )
    }
  });
