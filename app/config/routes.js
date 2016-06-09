@@ -5,12 +5,15 @@ var React = require('react'),
     IndexRoute = ReactRouter.IndexRoute,
     Main = require('../components/main.js'),
     Home = require('../components/home.js'),
-    hashHistory = ReactRouter.hashHistory;
+    hashHistory = ReactRouter.hashHistory,
+    PromptContainer = require('../containers/PromptContainer');
 
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
+      <Route path='playerOne' header='Player One' component={PromptContainer} />
+      <Route path='playerTwo/:playerOne' header='Player Two' component={PromptContainer} />
     </Route>
   </Router>
 );
