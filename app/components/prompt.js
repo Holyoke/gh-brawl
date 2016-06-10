@@ -1,7 +1,15 @@
 var React = require('react'),
-    transparentBg = require('../styles').transparentBg;
+    transparentBg = require('../styles').transparentBg,
+    PropTypes = React.PropTypes;
 
 var Prompt = React.createClass({
+  propTypes:{
+    header: PropTypes.string.isRequired,
+    onUpdateUser: PropTypes.func.isRequired,
+    onSubmitUser:PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired
+  },
+
   render: function () {
     return(
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
