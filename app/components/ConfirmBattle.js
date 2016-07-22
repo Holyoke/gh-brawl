@@ -1,4 +1,4 @@
-var React = require('react'),
+ var React = require('react'),
     PropTypes = React.PropTypes,
     Link = require('react-router').Link,
     UserDetailsWrapper = require('./UserDetailsWrapper'),
