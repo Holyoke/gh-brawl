@@ -11,7 +11,7 @@ var ResultsContainer = React.createClass({
   },
 
   componentDidMount: function () {
-    console.log(this.props);
+    console.log(this.props.location.state.playersInfo);
   },
 
   render: function () {
