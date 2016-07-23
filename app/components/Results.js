@@ -16,6 +16,13 @@ function StartOver(props) {
 }
 
 function Results (props) {
+  if (props.isLoading) {
+    return(
+      <pre>is Loading...</pre>
+    )
+  }
+
+  //Tie
   if (props.scores[0] === props.scores[1]) {
     <div className='jumbotron col-sm-12 text-center' style={styles.transparentBG}>
       <h1>Draw!</h1>
@@ -46,7 +53,8 @@ function Results (props) {
 
 Results.propTypes = {
   playersInfo: PropTypes.array.isRequired,
-  scores: PropTypes.array.isRequired
+  scores: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }
 
 module.exports = Results;
