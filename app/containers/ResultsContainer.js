@@ -5,7 +5,7 @@ var React = require('react'),
 var ResultsContainer = React.createClass({
   getInitialState: function () {
     return {
-      isLoading: true,
+      isLoading: false,
       scores: []
     };
   },

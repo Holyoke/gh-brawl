@@ -9,7 +9,7 @@
 
 function ConfirmBattle (props) {
     return props.isLoading === true
-      ? <Loading />
+      ? <Loading speed={800} text={'Confirming battle'}/>
     : <MainContainer>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>

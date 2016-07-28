@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    PropTypes = React.PropTypes;
 
 var styles = {
   container: {
@@ -16,15 +17,30 @@ var styles = {
     marginTop: '30px'
   }
 }
+
 var Loading = React.createClass({
+  propTypes: {
+    text: PropTypes.string,
+    speed: PropTypes.number
+  },
+
   getInitialState: function () {
-    this.originalText = 'Loading'
+    this.originalText = this.props.text;
     return {
       text: this.originalText
     }
   },
+
+  getDefaultProps: function () {
+    return {
+      text: 'Loading',
+      speed: 300
+    }
+  },
+
   componentDidMount: function () {
-    var stopper = 'Loading...';
+    var stopper = this.originalText.text + '...';
+
     this.interval = setInterval(function() {
       if (this.state.text === stopper){
         this.setState({text: this.originalText});
@@ -32,7 +48,7 @@ var Loading = React.createClass({
         var update = this.state.text + '.';
         this.setState({text: update});
       }
-    }.bind(this), 300);
+    }.bind(this), this.props.speed);
   },
 
   componentWillUnmount: function () {
